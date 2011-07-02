@@ -102,4 +102,13 @@ module Log4r
   class DefaultFormatter < BasicFormatter
   end
   
+  # NullFormatter does nothing with the event;
+  # the LogEvent object is passed directly to the Outputter.
+  # This is used for Outputters that handle rich 
+  # event data.
+  class NullFormatter < Formatter
+    def format(event)
+      event
+    end
+  end
 end
